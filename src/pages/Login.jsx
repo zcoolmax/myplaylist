@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../provider/authProvider";
 
-const CLIENT_ID = "8eb6bf3cd4e049039d96b5158208a1e9";
 const REDIRECT_URL = "http://localhost:5173";
 const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
 const RESPONSE_TYPE = "token";
@@ -33,7 +32,9 @@ const Login = () => {
       <h1>My Playlist</h1>
       <a
         className="btn btn-success"
-        href={`${AUTH_ENDPOINT}?response_type=${RESPONSE_TYPE}&client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URL}`}
+        href={`${AUTH_ENDPOINT}?response_type=${RESPONSE_TYPE}&client_id=${
+          import.meta.env.VITE_CLIENT_ID
+        }&scope=${SCOPE}&redirect_uri=${REDIRECT_URL}`}
       >
         Login
       </a>
